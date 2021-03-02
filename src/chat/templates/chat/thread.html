@@ -22,7 +22,12 @@
 <script>
 // websocket scripts
 
-  var endpoint = ''
+  var location = window.location
+  var websocketstart = 'ws://'
+  if (location.protocol == 'https:'){ //for secure connection
+    websocketstart = 'wss://'
+  }
+  var endpoint = websocketstart + location.host + location.pathname //this cannot be empty
   var socket = new WebSocket(endpoint)
 
   socket.onmessage = function(e){
