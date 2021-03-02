@@ -22,5 +22,20 @@
 <script>
 // websocket scripts
 
+  var endpoint = ''
+  var socket = new WebSocket(endpoint)
+
+  socket.onmessage = function(e){
+    console.log("message", e)
+  }
+  socket.onerror = function(e){
+    console.log("error", e)
+  }
+  socket.onopen = function(e){
+    console.log("opened", e)
+  }
+  socket.onclose = function(e){
+    console.log("closed", e)
+  }
 </script>
 {% endblock %}
