@@ -10,7 +10,7 @@ application = ProtocolTypeRouter({
     AuthMiddlewareStack(
       URLRouter(
         [
-          url(r"^(?P<username>[\w.@+-]+)", ChatConsumer), #don't do it .as_view(), simple export)
+          url(r"^messages/(?P<username>[\w.@+-]+)", ChatConsumer.as_asgi()), #don't do it .as_view(), simple export)
         ]
       )
     ) #Do you want the requested user to be inside the websocket and access that user?
